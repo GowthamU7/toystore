@@ -17,7 +17,7 @@ function App() {
           onClick={()=>setShowForm(!showForm)}>{!showForm?'Add Toy':'close'}</button>
         </div>
         <div className="w-full flex justify-center">
-            {showForm?<AddToy/>:<Toys showForm={showForm} setShowForm={setShowForm}/>}
+            {showForm?<AddToy showForm={showForm} setShowForm={setShowForm}/>:<Toys showForm={showForm} setShowForm={setShowForm}/>}
         </div>
     </div>
   );

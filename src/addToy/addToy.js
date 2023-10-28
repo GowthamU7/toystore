@@ -17,7 +17,14 @@ function AddToy(props){
     async function addToStore(e){
 
 
+
+        if(toyData.name === '' || toyData.description === '' || toyData.toy_category === '' || toyData.release_date === ""){
+            return alert('Fields cannot be empty')
+        }
+        
         if(data.mode === 'new'){
+
+
             let res = await fetch('https://toysrest.onrender.com/toys/',
             {
                 method:'POST',
@@ -29,7 +36,8 @@ function AddToy(props){
                 })
             })
             setterfn({'pk':'','mode':'new','name':'','description':'','toy_category':'','release_date':''})
-            window.location.href = ''
+            alert('Added.')
+            props.setShowForm(false)
         }
 
         if(data.mode === 'edit'){
@@ -69,12 +77,12 @@ function AddToy(props){
                     id="name"
                     onChange={trackChange}
                     value={toyData.name}
-                    required={true}
+                    required
                     />
                 </div>
                 <div className="w-full p-1">
                     <input 
-                    required={true}
+                    required
                     type="text"
                     className="
                     border-2
@@ -94,7 +102,7 @@ function AddToy(props){
                 </div>
                 <div className="w-full p-1">
                     <input 
-                    required={true}
+                    required
                     type="text"
                     className="
                     border-2
@@ -114,7 +122,7 @@ function AddToy(props){
                 </div>
                 <div className="w-full p-1">
                     <input 
-                    required={true}
+                    required
                     type="datetime-local"
                     className="
                     border-2
