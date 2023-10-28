@@ -28,8 +28,8 @@ function AddToy(props){
                     'toy_category':toyData.toy_category
                 })
             })
-            console.log(res)
             setterfn({'pk':'','mode':'new','name':'','description':'','toy_category':'','release_date':''})
+            window.location.href = ''
         }
 
         if(data.mode === 'edit'){
@@ -69,10 +69,12 @@ function AddToy(props){
                     id="name"
                     onChange={trackChange}
                     value={toyData.name}
+                    required={true}
                     />
                 </div>
                 <div className="w-full p-1">
                     <input 
+                    required={true}
                     type="text"
                     className="
                     border-2
@@ -92,6 +94,7 @@ function AddToy(props){
                 </div>
                 <div className="w-full p-1">
                     <input 
+                    required={true}
                     type="text"
                     className="
                     border-2
@@ -111,6 +114,7 @@ function AddToy(props){
                 </div>
                 <div className="w-full p-1">
                     <input 
+                    required={true}
                     type="datetime-local"
                     className="
                     border-2
